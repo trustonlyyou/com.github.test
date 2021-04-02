@@ -295,9 +295,45 @@ apt-cache
  - 패키지 젇보 보기 // apt-cache show 패키지이름
  - 패키지 의존성 확인 // apt-cache depends 패키지이름
  - 패키지 역의존성 확인 // apt-cache rdepends 패키지 이름 ?? 누구누구한테 필요한지.. 
+  
 
+>> apt가 UI 가 더 이쁘고 유익한 메시지를 출력 받기 때문에 apt 로 쓰자
 
+// sudo apt update 
+>> 설치되어 있는 패키지를 새 버전을 업그레이드
 
+// sudo apt dist-upgrade
+>> 의존성 검사하면 업그레이드
+
+// sudo add-apt-repository <저장소이름>
+>> 저장소 추가
+
+// sudo add-apt-repository --remove <저장소 이름>
+>> 저장소 제거
+
+// sudo apt install <패키지 이름>
+>> 패키지 설치 ex) sudo apt intall vim
+
+// sudo apt reinstall install <패키지 이름>
+>> 패키지 재설치
+
+// sudo apt remove <패키지 이름>
+>> 패키지 삭제 (설정 파일은 지우지 않음)
+
+// sudo apt --purge remove <패키지 이름>
+>> 패키지 삭제 (설정 파일 포함)
+
+// sudo apt source <패키지 이름>
+>> 패키지 소스코드 다운로드
+
+// sudo apt build-dep <패키지 이름>
+>> 받은 소스코드를 의존성 있게 빌드
+
+// sudo apt-cache search <패키지 이름>
+>> 패키지 검색
+
+// sudo apt-cache show <패키지 이름>
+>> 패키지 정보 보기
 
 
 

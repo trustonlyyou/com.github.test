@@ -295,6 +295,7 @@ apt-cache
  - 패키지 젇보 보기 // apt-cache show 패키지이름
  - 패키지 의존성 확인 // apt-cache depends 패키지이름
  - 패키지 역의존성 확인 // apt-cache rdepends 패키지 이름 ?? 누구누구한테 필요한지.. 
+  
 
 
 
