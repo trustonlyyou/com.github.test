@@ -339,6 +339,59 @@ apt-cache
 
 
 
+=======================파일 압축, 묶기, 시스템 설정====================
+
+- 파일 압축
+	* 압축률은 xz 또는 bz2 가 좋다.
+
+- 파일 압출 관련 명령
+ 1. xz 압출
+ // xz 파일명
+ // xz -d 파일명.xz
+
+ 2. bzip2
+ // bzip2 파일명
+ // bzip2 -d 파일명.bz2
+ 
+ 3. gzip
+ // gzip 파일명
+ // gzip -d 파일명.gz
+ 
+
+- 파일 묶기
+ * 리눅스에서는 '파일 압축' 과 '파일 묶기'는 원칙적으로 별개의 프로그램으로 수행
+ * 파일 묶기의 명령어는 'tar' 이며, 묶인 파일의 확장명도 'tar' 이다.
+
+- 파일 묶기 명령(tar)
+ * tar : 확장명 tar로 묶음 파일을 만들어 주거나 묶음을 풀어 준다.
+	동작 : c(묶기) x(풀기) t(경로확인)
+	옵션 : f(파일) v(과정보기) J(tar+xz) z(tar+gzip) j(tar+bzip2)
+
+# tar cvf my.tar  // 묶기
+# tar cvfJ my.tar.xz // 묶기 + xz 합축
+# tar xvf my.tar //  풀기
+# tar xvfJ my.tar.xz // xz 압축 해제 + tar 풀기
+
+
+//=================개인 공부=================
+tar + gz 같이 쓰기
+
+1. 압축하기
+ $ tar zcf name.tar.gz file1 file2 file3
+
+2. 압출풀기
+ $ tar -zxvf name.tar.gz
+
+
+// 파일 위치 검색
+
+find [경로] [옵션] [조건] [action] : 기본 파일 찾기
+ - [옵션] -name, -user(소유자), newer(전, 후), -perm(허가권), -size
+ - [action] -print, -exec
+
+ # find /etc -name "*.conf"
+ # find /bin -size + 10K -size - 100K
+ # find /home -name "*.swp" -exec rm { } \ ;
 
 
 

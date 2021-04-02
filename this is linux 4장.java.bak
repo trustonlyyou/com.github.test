@@ -297,12 +297,91 @@ apt-cache
  - 패키지 역의존성 확인 // apt-cache rdepends 패키지 이름 ?? 누구누구한테 필요한지.. 
   
 
+>> apt가 UI 가 더 이쁘고 유익한 메시지를 출력 받기 때문에 apt 로 쓰자
+
+// sudo apt update 
+>> 설치되어 있는 패키지를 새 버전을 업그레이드
+
+// sudo apt dist-upgrade
+>> 의존성 검사하면 업그레이드
+
+// sudo add-apt-repository <저장소이름>
+>> 저장소 추가
+
+// sudo add-apt-repository --remove <저장소 이름>
+>> 저장소 제거
+
+// sudo apt install <패키지 이름>
+>> 패키지 설치 ex) sudo apt intall vim
+
+// sudo apt reinstall install <패키지 이름>
+>> 패키지 재설치
+
+// sudo apt remove <패키지 이름>
+>> 패키지 삭제 (설정 파일은 지우지 않음)
+
+// sudo apt --purge remove <패키지 이름>
+>> 패키지 삭제 (설정 파일 포함)
+
+// sudo apt source <패키지 이름>
+>> 패키지 소스코드 다운로드
+
+// sudo apt build-dep <패키지 이름>
+>> 받은 소스코드를 의존성 있게 빌드
+
+// sudo apt-cache search <패키지 이름>
+>> 패키지 검색
+
+// sudo apt-cache show <패키지 이름>
+>> 패키지 정보 보기
 
 
 
 
 
+=======================파일 압축, 묶기, 시스템 설정====================
 
+- 파일 압축
+	* 압축률은 xz 또는 bz2 가 좋다.
+
+- 파일 압출 관련 명령
+ 1. xz 압출
+ // xz 파일명
+ // xz -d 파일명.xz
+
+ 2. bzip2
+ // bzip2 파일명
+ // bzip2 -d 파일명.bz2
+ 
+ 3. gzip
+ // gzip 파일명
+ // gzip -d 파일명.gz
+ 
+
+- 파일 묶기
+ * 리눅스에서는 '파일 압축' 과 '파일 묶기'는 원칙적으로 별개의 프로그램으로 수행
+ * 파일 묶기의 명령어는 'tar' 이며, 묶인 파일의 확장명도 'tar' 이다.
+
+- 파일 묶기 명령(tar)
+ * tar : 확장명 tar로 묶음 파일을 만들어 주거나 묶음을 풀어 준다.
+	동작 : c(묶기) x(풀기) t(경로확인)
+	옵션 : f(파일) v(과정보기) J(tar+xz) z(tar+gzip) j(tar+bzip2)
+
+# tar cvf my.tar  // 묶기
+# tar cvfJ my.tar.xz // 묶기 + xz 합축
+# tar xvf my.tar //  풀기
+# tar xvfJ my.tar.xz // xz 압축 해제 + tar 풀기
+
+
+// 파일 위치 검색
+
+find [경로] [옵션] [조건] [action] : 기본 파일 찾기
+ - [옵션] -name, -user(소유자), newer(전, 후), -perm(허가권), -size
+ - [action] -print, -exec
+
+ # find /etc -name "*.conf"
+ # find /bin -size + 10K -size - 100K
+ # find /home -name "*.swp" -exec rm { } \ ;
 
 
 
